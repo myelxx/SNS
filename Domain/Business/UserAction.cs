@@ -9,20 +9,20 @@ namespace Domain.Business
 {
     class UserAction : EntityBaseClass
     {
-        List<User> _userContext;
+        List<User> _userList;
         public User Add(User user)
         {
-           _userContext.Add(user);
+           _userList.Add(user);
             return user;
         }
 
         public User Delete(int id)
         {
-            User user = _userContext.FirstOrDefault(e => e.UserId == id);
+            User user = _userList.First(e => e.UserId == id);
 
             if (user != null)
             {
-                _userContext.Remove(user);
+                _userList.Remove(user);
             }
 
             return user;
@@ -30,7 +30,7 @@ namespace Domain.Business
 
         public void Edit(User user)
         {
-            User editUser = _userContext.FirstOrDefault(e => e.UserId == user.UserId);
+            User editUser = _userList.First(p => p.UserId == user.UserId);
 
             if (editUser != null)
             {
@@ -41,7 +41,7 @@ namespace Domain.Business
 
         public User View(User user)
         {
-            foreach (var p in _userContext)
+            foreach (var p in _userList)
             {
                 Console.WriteLine(" User name: {0} \n Date: {1} {2} \n", p.Name, p.DateTimeCreated);
             }

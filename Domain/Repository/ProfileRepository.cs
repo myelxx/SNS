@@ -8,12 +8,7 @@ namespace Domain.Repository
 {
     class ProfileRepository : ProfileAction
     {
-        Profile _profileContext;
-        List<User> _userContext;
-        public ProfileRepository(Profile profileContext)
-        {
-            _profileContext = profileContext;
-        }
+        List<User> _userList;
 
         public void DisplayProfile(User user)
         {

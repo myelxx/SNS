@@ -9,7 +9,7 @@ namespace Domain.Repository
     class UserRepository : UserAction
     {
 
-        User _userContext;
+        User _userList;
 
         List<User> users = new List<User>()
         {
@@ -20,7 +20,7 @@ namespace Domain.Repository
         };
         public UserRepository(User userContext)
         {
-            _userContext = userContext;
+            _userList = userContext;
         }
 
         public void Add(User entity)

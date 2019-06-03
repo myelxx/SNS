@@ -9,22 +9,23 @@ namespace Domain.Business
 {
    public class PostAction : EntityBaseClass, IPost
     {
-        List<Post> _postContext;
+
+        List<Post> _postList;
 
         public Post AddPost(Post post)
         {
-            post.PostId = _postContext.Max(e => e.PostId) + 1;
-            _postContext.Add(post);
+            post.PostId = _postList.Max(p => p.PostId) + 1;
+            _postList.Add(post);
             return post;
         }
 
         public Post DeletePost(int id)
         {
-            Post post = _postContext.FirstOrDefault(e => e.PostId == id);
+            Post post = _postList.First(p => p.PostId == id);
 
             if(post != null)
             {
-                _postContext.Remove(post);
+                _postList.Remove(post);
             }
 
             return post;
@@ -32,7 +33,7 @@ namespace Domain.Business
 
         public Post Edit(Post post)
         {
-            Post editPost = _postContext.FirstOrDefault(e => e.PostId == post.PostId);
+            Post editPost = _postList.First(e => e.PostId == post.PostId);
 
             if (editPost != null)
             {
@@ -45,7 +46,7 @@ namespace Domain.Business
 
         public Post View(Post post)
         {
-            foreach(var p in _postContext)
+            foreach(var p in _postList)
             {
                 Console.WriteLine(" Post: {0} \n Date: {1} {2} \n",  p.PostDetails, p.DateTimeCreated);
             }

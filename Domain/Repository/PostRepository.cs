@@ -8,7 +8,7 @@ namespace Domain.Repository
 {
     class PostRepository : PostAction, IPost
     {
-        Post _postContext;
+        Post _postList;
 
         List<Post> users = new List<Post>()
         {
@@ -20,7 +20,7 @@ namespace Domain.Repository
 
         public PostRepository(Post postContext)
         {
-            _postContext = postContext;
+            _postList = postContext;
         }
 
         public Post AddPost(Post post)
