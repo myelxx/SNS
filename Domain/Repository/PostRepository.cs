@@ -18,6 +18,10 @@ namespace Domain.Repository
             new Post () { UserId = 2, PostId = 4, DateTimeCreated = DateTime.Now },
         };
 
+        public PostRepository()
+        {
+        }
+
         public PostRepository(Post postContext)
         {
             _postList = postContext;

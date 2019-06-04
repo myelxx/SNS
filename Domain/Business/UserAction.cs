@@ -9,9 +9,15 @@ namespace Domain.Business
 {
     class UserAction : EntityBaseClass
     {
+        PostRepository p = new PostRepository();
+
         List<User> _userList;
         public User Add(User user)
         {
+            //User user1 = new User {
+            //    UserId = new Guid()
+            //};
+
            _userList.Add(user);
             return user;
         }
